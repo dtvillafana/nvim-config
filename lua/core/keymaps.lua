@@ -1,27 +1,3 @@
-function split(str, sep)
-   local result = {}
-   for word in str:gmatch("[^"..sep.."]+") do
-    table.insert(result, word)
-   end
-   return result
-end
-
-function IncreaseFont()
-    local currentFontString = vim.opt.guifont["_value"]
-    local fontName = split(currentFontString, ":")[1]
-    local fontSize = split(currentFontString, ":")[2]
-    local fontNum = split(fontSize, "h")[1]
-    vim.opt.guifont=fontName..":h"..(fontNum+1)
-end
-
-function DecreaseFont()
-    local currentFontString = vim.opt.guifont["_value"]
-    local fontName = split(currentFontString, ":")[1]
-    local fontSize = split(currentFontString, ":")[2]
-    local fontNum = split(fontSize, "h")[1]
-    vim.opt.guifont = fontName..":h"..(fontNum-1)
-end
-
 local opts = { noremap = true, silent = true }
 
 -- local term_opts = { silent = true }
@@ -44,23 +20,17 @@ vim.g.maplocalleader = " "
 
 -- Other Keymappings
 -- lsp keymaps can be found in the handlers.lua in the lsp folder
--- $HOME/Sync/dotfiles/config/nvim/lua/user/lsp/handlers.lua
+-- $HOME/Sync/dotfiles/config/nvim/lua/plugins/lsp/handlers.lua
 -- toggleterm/terminal keymaps can be found in the toggleterm.lua file
 -- $HOME/Sync/dotfiles/config/nvim/lua/user/toggleterm.lua
 
 
--- Normal --
+-- Normal Mode --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
 keymap("n", "<C-j>", "<C-w>j", opts)
 keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
-
--- Telescope commands
-keymap("n", "<leader>e", ":Telescope file_browser<CR>", opts)
-keymap("n", "<leader>os", ":Telescope orgmode search_headings<CR>", opts)
-
--- Buffer controls
 
 -- exiting controls
 keymap("n", "<leader>q", ":q<CR>", opts)
@@ -76,7 +46,7 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- Navigate/Control buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<leader>bd",  ":Bdelete<CR>", opts)
+keymap("n", "<leader>bd",  ":bdelete<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -85,11 +55,31 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 -- remove highlighting
 keymap("n", "<leader>nh", ":nohl<CR>", opts)
 
--- Insert --
--- Press jk fast to enter
+-- Terminals -- main prefix is 't' for "terminal"
+keymap("n", "<leader>tt", "<cmd>lua _TERM_TOGGLE_TAB()<CR>", {noremap = false, silent = true})
+keymap("n", "<leader>tf", "<cmd>lua _TERM_TOGGLE_FLOAT()<CR>", {noremap = false, silent = true})
+keymap("n", "<leader>tv", "<cmd>lua _TERM_TOGGLE_VERT()<CR>", {noremap = false, silent = true})
+keymap("n", "<leader>th", "<cmd>lua _TERM_TOGGLE_HORIZ()<CR>", {noremap = false, silent = true})
+keymap("n", "<leader>tl", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", {noremap = false, silent = true})
+keymap("n", "<leader>tb", "<cmd>lua _BPYTOP_TOGGLE()<CR>", {noremap = false, silent = true})
+
+-- Telescope -- main prefix is 'f' for "find"
+keymap("n", "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
+keymap("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>fr", "<cmd>lua require('telescope').extensions.frecency.frecency({ workspace = 'CWD' })<CR>", opts)
+keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
+keymap("n", "<leader>e", ":Telescope file_browser<CR>", opts)
+keymap("n", "<leader>os", ":Telescope orgmode search_headings<CR>", opts)
+
+-- my own gui stuff
+keymap("n", "<S-Up>", ":lua IncreaseFont()<CR>", opts)
+keymap("n", "<S-Down>", ":lua DecreaseFont()<CR>", opts)
+
+-- Insert Mode --
+-- Press jk fast to return to normal mode
 keymap("i", "jk", "<ESC>", opts)
 
--- Visual --
+-- Visual Mode --
 -- yank to system clipboard
 keymap("v", "<leader>y", "\"+y", opts)
 
@@ -108,16 +98,3 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
-
--- Terminal --
-keymap("n", "<leader>t", "<C-t><C-o>", {noremap = false, silent = true}) -- this is remapped this way because toggleterm defaults 
--- its open mapping to be available in all modes
--- other terminal naviation and whatnot is handled in toggleterm config
-
--- Telescope
-keymap("n", "<leader><S-f>", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
-keymap("n", "<leader>f", "<cmd>Telescope live_grep<cr>", opts)
-
--- my own gui stuff
-keymap("n", "<S-Up>", ":lua IncreaseFont()<CR>", opts)
-keymap("n", "<S-Down>", ":lua DecreaseFont()<CR>", opts)
