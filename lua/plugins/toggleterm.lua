@@ -51,13 +51,8 @@ return {
 
         local Terminal = require("toggleterm.terminal").Terminal
 
-        local floatTerm = Terminal:new({
-            hidden = true,
-            direction = "float",
-        })
-
-        function _TERM_TOGGLE_FLOAT()
-            floatTerm:toggle()
+        function _TERM_TOGGLE_FLOAT(count)
+            vim.cmd(count .. "ToggleTerm direction=float")
         end
 
         local vertTerm = Terminal:new({

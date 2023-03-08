@@ -6,7 +6,6 @@ return {
     -- "nvim-telescope/telescope.nvim",
     "nvim-telescope/telescope-file-browser.nvim",
     "nvim-telescope/telescope-media-files.nvim",
-    "joaomsa/telescope-orgmode.nvim",
 
     -- Thank you tpope
     "tpope/vim-surround",

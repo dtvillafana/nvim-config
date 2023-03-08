@@ -12,6 +12,7 @@ return {
             "jsonls",
             "tsserver",
             "pylsp",
+            "sqlls",
         }
 
         local settings = {
@@ -29,14 +30,14 @@ return {
 
         local status_ok, mason = pcall(require, "mason")
         if not status_ok then
-            print("Critical error, failed to load mason.nvim!")
+            print("LSP error, failed to load mason.nvim!")
             return
         end
 
         mason.setup(settings)
         local ok, mason_lspconfig = pcall(require, "mason-lspconfig")
         if not ok then
-            print("Critical error, failed to load mason-lspconfig.nvim!")
+            print("LSP error, failed to load mason-lspconfig.nvim!")
             return
         end
         mason_lspconfig.setup({

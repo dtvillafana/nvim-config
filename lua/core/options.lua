@@ -34,7 +34,7 @@ local options = {
     scrolloff = 4,                           -- is one of my fav
     sidescrolloff = 4,
     showbreak = "﬌ ",
-    guifont = "SauceCodePro Nerd Font Mono"..":h11",               -- the font used in graphical neovim applications
+    guifont = "SauceCodePro Nerd Font Mono"..":h12",               -- the font used in graphical neovim applications
     sessionoptions = "buffers,curdir,folds,winpos,winsize",
     -- Table Mode
 }
@@ -55,35 +55,25 @@ local globalopts = {
     table_mode_toggle_map = 'm',
 }
 
-local function split(str, sep)
-    local result = {}
-    for word in str:gmatch("[^"..sep.."]+") do
-        table.insert(result, word)
-    end
-    return result
-end
-
-function IncreaseFont()
+function ModifyFontSize(num)
+    vim.notify.dismiss() -- TODO: change this from dismissing notifications to updating the notification with the same title
     local currentFontString = vim.opt.guifont["_value"]
-    local fontName = split(currentFontString, ":")[1]
-    local fontSize = split(currentFontString, ":")[2]
-    local fontNum = split(fontSize, "h")[1]
-    vim.opt.guifont=fontName..":h"..(fontNum+1)
+    local fontParsed = vim.split(currentFontString, ":h")
+    local fontName = fontParsed[1]
+    local fontSize = fontParsed[2]
+    vim.opt.guifont=fontName..":h"..(fontSize+num)
+    vim.notify(vim.opt.guifont["_value"], vim.log.levels.INFO, {title = "Font Changed"} )
 end
-
-function DecreaseFont()
-    local currentFontString = vim.opt.guifont["_value"]
-    local fontName = split(currentFontString, ":")[1]
-    local fontSize = split(currentFontString, ":")[2]
-    local fontNum = split(fontSize, "h")[1]
-    vim.opt.guifont = fontName..":h"..(fontNum-1)
-end
-
 
 function Set_Filetype()
-    local filename = vim.api.nvim_buf_get_name(0)
-    if filename:match(".curl$") or filename:match(".wget$") then
+    local f = vim.api.nvim_buf_get_name(0)
+    if f:match(".curl$")
+        or f:match(".wget$") then
         vim.api.nvim_command("set filetype=bash")
+    elseif f:match(".aspx$")
+        or f:match(".ascx$")
+        or f:match("[wW]web.[cC]onfig$") then
+        vim.api.nvim_command("set filetype=xml")
     end
 end
 

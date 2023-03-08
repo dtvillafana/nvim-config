@@ -122,5 +122,6 @@ return {
         telescope.load_extension('file_browser')
         telescope.load_extension('orgmode')
         telescope.load_extension('media_files')
+
     end
 }
