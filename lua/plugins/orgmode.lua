@@ -12,6 +12,10 @@ return {
             print("orgmode not setup...")
             return
         end
+        if os.getenv("ORG") == nil then
+            print("$ORG environment variable not set!")
+            return
+        end
 
         local function returnTime()
             return os.date("%c")
@@ -33,10 +37,9 @@ return {
         --     ensure_installed = {'org'}, -- Or run :TSUpdate org
         -- }
 
-
         orgmode.setup {
-            org_agenda_files = {'~/Sync/orgmode/**/*'},
-            org_default_notes_file = '~/Sync/orgmode/refile.org',
+            org_agenda_files = {os.getenv("ORG") .. '/**/*'},
+            org_default_notes_file = os.getenv("ORG") .. '/refile.org',
             org_hide_emphasis_markers = true,
             org_todo_keywords = {  'WAITING', 'EVENT', 'TODO', '|', 'DONE', 'CANCELED' },
             org_capture_templates = {
