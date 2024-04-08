@@ -1,0 +1,13 @@
+return {
+    "nvim-telescope/telescope-frecency.nvim",
+    dependencies = {
+        "nvim-telescope/telescope.nvim",
+    },
+    config = function ()
+        local status_ok, telescope = pcall(require, "telescope")
+        if not status_ok then
+            return
+        end
+        telescope.load_extension("frecency")
+    end,
+}
