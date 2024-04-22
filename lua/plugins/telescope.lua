@@ -3,17 +3,16 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
-        "nvim-telescope/telescope-file-browser.nvim",
         "nvim-telescope/telescope-media-files.nvim",
         "nvim-telescope/telescope-frecency.nvim",
     },
-    config = function ()
+    config = function()
         local status_ok, telescope = pcall(require, "telescope")
         if not status_ok then
             return
         end
-        local actions = require "telescope.actions"
-        telescope.setup {
+        local actions = require("telescope.actions")
+        telescope.setup({
             defaults = {
                 prompt_prefix = " ",
                 selection_caret = " ",
@@ -21,31 +20,31 @@ return {
                 bottom_pane = {
                     height = 25,
                     preview_cutoff = 120,
-                    prompt_position = "top"
+                    prompt_position = "top",
                 },
                 center = {
                     height = 0.4,
                     preview_cutoff = 40,
                     prompt_position = "top",
-                    width = 0.5
+                    width = 0.5,
                 },
                 cursor = {
                     height = 0.9,
                     preview_cutoff = 40,
-                    width = 0.8
+                    width = 0.8,
                 },
                 horizontal = {
                     height = 0.9,
                     preview_cutoff = 240,
                     prompt_position = "bottom",
-                    width = 0.8
+                    width = 0.8,
                 },
                 vertical = {
                     height = 0.9,
                     preview_cutoff = 40,
                     prompt_position = "bottom",
-                    width = 0.8
-                }
+                    width = 0.8,
+                },
             },
             vimgrep_arguments = {
                 "rg",
@@ -55,7 +54,7 @@ return {
                 "--line-number",
                 "--column",
                 "--smart-case",
-                "--no-ignore-vcs"
+                "--no-ignore-vcs",
             },
             mappings = {
                 i = {
@@ -125,7 +124,7 @@ return {
                 -- Default configuration for builtin pickers goes here:
                 find_files = {
                     hidden = true,
-                }
+                },
                 -- builtin picker
                 -- Now the picker_config_key will be applied every time you call this
             },
@@ -135,22 +134,14 @@ return {
                 --   extension_config_key = value,
                 -- },
                 -- please take a look at the readme of the extension you want to configure
-                file_browser = {
-                    hijack_netrw = true,
-                    theme = "ivy",
-                    hidden = false,
-                    respect_gitignore = false,
-                    depth = 1,
-                },
                 media_files = {
                     -- filetypes whitelist
                     -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-                    filetypes = {"png", "webp", "jpg", "jpeg", "pdf"},
-                    find_cmd = "rg" -- find command (defaults to `fd`)
+                    filetypes = { "png", "webp", "jpg", "jpeg", "pdf" },
+                    find_cmd = "rg", -- find command (defaults to `fd`)
                 },
             },
-        }
-        telescope.load_extension('file_browser')
-        telescope.load_extension('media_files')
-    end
+        })
+        telescope.load_extension("media_files")
+    end,
 }

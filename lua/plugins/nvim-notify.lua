@@ -1,10 +1,8 @@
 return {
     "rcarriga/nvim-notify",
-    dependencies = {
-
-    },
-    config = function ()
-        local status_ok, notify = pcall(require,"notify")
+    dependencies = {},
+    config = function()
+        local status_ok, notify = pcall(require, "notify")
         if not status_ok then
             print("nvim-notify did not load")
             return
@@ -17,15 +15,15 @@ return {
                 ERROR = "",
                 INFO = "",
                 TRACE = "✎",
-                WARN = ""
+                WARN = "",
             },
             level = 2,
             minimum_width = 50,
             render = "default",
             stages = "fade_in_slide_out",
             timeout = 5000,
-            top_down = true
+            top_down = true,
         })
         vim.notify = notify
-    end
+    end,
 }

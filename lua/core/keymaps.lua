@@ -22,7 +22,6 @@ vim.g.maplocalleader = " "
 -- some lsp keymaps can be found in the handlers.lua in the lsp folder
 -- $HOME/git-repos/dotfiles/config/nvim/lua/plugins/lsp/handlers.lua
 
-
 -- Normal Mode --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -44,7 +43,7 @@ keymap("n", "<C-Right>", "<CMD>vertical resize +2<CR>", opts)
 -- Navigate/Control buffers
 keymap("n", "<S-l>", "<CMD>bnext<CR>", opts)
 keymap("n", "<S-h>", "<CMD>bprevious<CR>", opts)
-keymap("n", "<leader>bd",  "<CMD>bdelete<CR>", opts)
+keymap("n", "<leader>bd", "<CMD>bdelete<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -54,16 +53,16 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 keymap("n", "<leader>nh", "<CMD>nohl<CR>", opts)
 
 -- Terminals -- main prefix is 't' for "terminal"
-keymap("n", "<leader>tt", "<CMD>lua _TERM_TOGGLE_TAB(vim.v.count)<CR>", {noremap = false, silent = true})
-keymap("n", "<leader>tf", "<CMD>lua _TERM_TOGGLE_FLOAT(vim.v.count)<CR>", {noremap = false, silent = true})
-keymap("n", "<leader>tv", "<CMD>lua _TERM_TOGGLE_VERT(vim.v.count)<CR>", {noremap = false, silent = true})
-keymap("n", "<leader>th", "<CMD>lua _TERM_TOGGLE_HORIZ(vim.v.count)<CR>", {noremap = false, silent = true})
-keymap("n", "<leader>tl", "<CMD>lua _LAZYGIT_TOGGLE()<CR>", {noremap = false, silent = true})
-keymap("n", "<leader>tb", "<CMD>lua _BPYTOP_TOGGLE()<CR>", {noremap = false, silent = true})
-keymap("n", "<leader>tj", "<CMD>lua _NODE_TOGGLE()<CR>", {noremap = false, silent = true})
-keymap("n", "<leader>tn", "<CMD>lua _NCDU_TOGGLE()<CR>", {noremap = false, silent = true})
+keymap("n", "<leader>tt", "<CMD>lua _TERM_TOGGLE_TAB(vim.v.count)<CR>", { noremap = false, silent = true })
+keymap("n", "<leader>tf", "<CMD>lua _TERM_TOGGLE_FLOAT(vim.v.count)<CR>", { noremap = false, silent = true })
+keymap("n", "<leader>tv", "<CMD>lua _TERM_TOGGLE_VERT(vim.v.count)<CR>", { noremap = false, silent = true })
+keymap("n", "<leader>th", "<CMD>lua _TERM_TOGGLE_HORIZ(vim.v.count)<CR>", { noremap = false, silent = true })
+keymap("n", "<leader>tl", "<CMD>lua _LAZYGIT_TOGGLE()<CR>", { noremap = false, silent = true })
+keymap("n", "<leader>tb", "<CMD>lua _BPYTOP_TOGGLE()<CR>", { noremap = false, silent = true })
+keymap("n", "<leader>tj", "<CMD>lua _NODE_TOGGLE()<CR>", { noremap = false, silent = true })
+keymap("n", "<leader>tn", "<CMD>lua _NCDU_TOGGLE()<CR>", { noremap = false, silent = true })
 if READ_SHELL_COMMAND("uname -r"):match(".*WSL2") then
-    keymap("n", "<leader>tp", "<CMD>lua _POWERSHELL_TOGGLE()<CR>", {noremap = false, silent = true})
+    keymap("n", "<leader>tp", "<CMD>lua _POWERSHELL_TOGGLE()<CR>", { noremap = false, silent = true })
 end
 
 -- Telescope -- main prefix is 'f' for "find"
@@ -76,7 +75,7 @@ keymap("n", "<leader>fb", "<CMD>Telescope buffers<CR>", opts)
 keymap("n", "<leader>fd", "<CMD>Telescope diagnostics<CR>", opts)
 keymap("n", "<leader>fo", "<CMD>Telescope orgmode search_headings<CR>", opts)
 keymap("n", "<leader>fq", "<CMD>Telescope quickfix<CR>", opts)
-keymap("n", "<leader>e", "<CMD>Telescope file_browser<CR>", opts)
+keymap("n", "<leader>e", "<CMD>Oil --float<CR>", opts)
 
 -- Orgmode -- main prefix is 'o' for "orgmode"
 keymap("n", "<leader>or", "<CMD>Telescope orgmode refile_heading<CR>", opts)
@@ -85,7 +84,7 @@ keymap("n", "<leader>or", "<CMD>Telescope orgmode refile_heading<CR>", opts)
 keymap("n", "<leader>r<Up>", "<CMD>lua ModifyFontSize(vim.v.count, 1)<CR>", opts)
 keymap("n", "<leader>r<Down>", "<CMD>lua ModifyFontSize(vim.v.count, -1)<CR>", opts)
 keymap("n", "<leader>rc", "<CMD>lua SET_CWD_TO_BUF_DIR()<CR>", opts)
-keymap("n", "<leader>nd", "<CMD>lua require(\"notify\").dismiss()<CR>", opts)
+keymap("n", "<leader>nd", '<CMD>lua require("notify").dismiss()<CR>', opts)
 keymap("n", "<leader>sq", "<CMD>DBUIToggle<CR>", opts)
 keymap("n", "<leader>gb", "<CMD>lua GIT_BLAME_CURRENT_LINE()<CR>", opts)
 
@@ -95,7 +94,7 @@ keymap("i", "jk", "<ESC>", opts)
 
 -- Visual Mode --
 -- yank to system clipboard
-keymap("v", "<leader>y", "\"+y", opts)
+keymap("v", "<leader>y", '"+y', opts)
 
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)

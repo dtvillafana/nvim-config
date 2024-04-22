@@ -48,14 +48,14 @@ local function lsp_highlight_document(client)
     -- Set autocommands conditional on server_capabilities
     if client.server_capabilities.documentHighlight then
         vim.api.nvim_exec(
-        [[
+            [[
         augroup lsp_document_highlight
         autocmd! * <buffer>
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
         augroup END
         ]],
-        false
+            false
         )
     end
 end
@@ -69,9 +69,27 @@ local function lsp_keymaps(bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lgs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lgr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>d[", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>df", '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded" })<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>d]", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
+    vim.api.nvim_buf_set_keymap(
+        bufnr,
+        "n",
+        "<leader>d[",
+        '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>',
+        opts
+    )
+    vim.api.nvim_buf_set_keymap(
+        bufnr,
+        "n",
+        "<leader>df",
+        '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "rounded" })<CR>',
+        opts
+    )
+    vim.api.nvim_buf_set_keymap(
+        bufnr,
+        "n",
+        "<leader>d]",
+        '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
+        opts
+    )
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>dl", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
     -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])

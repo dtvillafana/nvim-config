@@ -3,7 +3,7 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
-    config = function ()
+    config = function()
         local status_ok, indent_blankline = pcall(require, "ibl")
         if not status_ok then
             return
@@ -18,7 +18,7 @@ return {
             "RainbowCyan",
         }
 
-        local hooks = require "ibl.hooks"
+        local hooks = require("ibl.hooks")
         -- create the highlight groups in the highlight setup hook, so they are reset
         -- every time the colorscheme changes
         hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
@@ -34,12 +34,12 @@ return {
             enabled = true,
             debounce = 200,
             indent = {
-                char = '┊',
-                tab_char = { '', '', '', '', '', '', '', '', ''},
+                char = "┊",
+                tab_char = { "", "", "", "", "", "", "", "", "" },
                 smart_indent_cap = true,
                 priority = 1,
-                highlight = highlight
+                highlight = highlight,
             },
         })
-    end
+    end,
 }

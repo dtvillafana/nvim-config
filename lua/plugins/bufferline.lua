@@ -4,14 +4,14 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
-    config = function ()
+    config = function()
         local status_ok, bufferline = pcall(require, "bufferline")
         if not status_ok then
             print("bufferline failed to load!")
             return
         end
 
-        bufferline.setup {
+        bufferline.setup({
             options = {
                 numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
                 close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
@@ -23,7 +23,7 @@ return {
                 -- as an escape hatch for people who cannot bear it for whatever reason
                 indicator = {
                     icon = "▎",
-                    style = "icon"
+                    style = "icon",
                 },
                 buffer_close_icon = "",
                 -- buffer_close_icon = '',
@@ -45,7 +45,7 @@ return {
                 max_name_length = 30,
                 max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
                 tab_size = 21,
-                diagnostics = "nvim_lsp",-- | "coc",
+                diagnostics = "nvim_lsp", -- | "coc",
                 diagnostics_update_in_insert = false,
                 -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
                 --   return "("..count..")"
@@ -174,6 +174,6 @@ return {
             --         bg = { attribute = "bg", highlight = "Normal" },
             --     },
             -- },
-        }
-    end
+        })
+    end,
 }

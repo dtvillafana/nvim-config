@@ -3,7 +3,7 @@ return {
     dependencies = {
         "nvim-telescope/telescope.nvim",
     },
-    config = function ()
+    config = function()
         local status_ok, persisted = pcall(require, "persisted")
         if not status_ok then
             return
@@ -24,16 +24,15 @@ return {
             after_save = nil, -- function to run after the session is saved to disk
             after_source = nil, -- function to run after the session is sourced
             telescope = { -- options for the telescope extension
-            before_source = nil, -- function to run before the session is sourced via telescope
-            after_source = nil, -- function to run after the session is sourced via telescope
-            reset_prompt_after_deletion = true, -- whether to reset prompt after session deleted
-        },
-    })
-    local ok, telescope = pcall(require, "telescope")
-    if not (status_ok and ok) then
-        return
-    end
-    telescope.load_extension("persisted")
-end
+                before_source = nil, -- function to run before the session is sourced via telescope
+                after_source = nil, -- function to run after the session is sourced via telescope
+                reset_prompt_after_deletion = true, -- whether to reset prompt after session deleted
+            },
+        })
+        local ok, telescope = pcall(require, "telescope")
+        if not (status_ok and ok) then
+            return
+        end
+        telescope.load_extension("persisted")
+    end,
 }
-

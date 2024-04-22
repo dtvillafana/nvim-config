@@ -1,7 +1,7 @@
-local path = function ()
+local path = function()
     local function directory_exists(path)
         local stat = vim.loop.fs_stat(path)
-        return stat and stat.type == 'directory'
+        return stat and stat.type == "directory"
     end
 
     local directory_path = os.getenv("HOME") .. "/.local/share/gopass/"
@@ -17,8 +17,8 @@ end
 return {
     "https://github.com/nacro90/omen.nvim",
     dependencies = {
-        "nvim-lua/telescope.nvim",
-        "nvim-lua/plenary.nvim"
+        "nvim-telescope/telescope.nvim",
+        "nvim-lua/plenary.nvim",
     },
     opts = {
         picker = "telescope", --- Picker type
@@ -35,5 +35,5 @@ return {
             "Recycle Bin",
         },
         use_default_keymaps = true, --- Whether display info messages or not
-    }
+    },
 }

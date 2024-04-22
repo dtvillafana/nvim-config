@@ -9,7 +9,7 @@ return {
         "nvimtools/none-ls.nvim",
     },
     build = ":MasonUpdate", -- updates registry contents
-    config = function ()
+    config = function()
         local ensure_servers_installed = {
             "lua_ls",
             "omnisharp",
@@ -18,7 +18,7 @@ return {
             "tsserver",
             "pylsp",
             "ansiblels",
-            "tailwindcss"
+            "tailwindcss",
         }
 
         local mason_ok, mason = pcall(require, "mason")
@@ -45,7 +45,7 @@ return {
                 icons = {
                     package_installed = "✓",
                     package_pending = "➜",
-                    package_uninstalled = "✗"
+                    package_uninstalled = "✗",
                 },
             },
             log_level = vim.log.levels.INFO,
@@ -56,7 +56,6 @@ return {
             ensure_installed = ensure_servers_installed,
             automatic_installation = false,
         })
-
 
         local opts = {}
 
@@ -77,5 +76,5 @@ return {
         end
         require("plugins.lsp.handlers").setup()
         require("plugins.lsp.none-ls")
-    end
+    end,
 }

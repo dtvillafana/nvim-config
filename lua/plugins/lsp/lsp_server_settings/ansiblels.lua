@@ -4,13 +4,13 @@ return {
     settings = {
         ansible = {
             ansible = {
-                path = "ansible"
+                path = "ansible",
             },
             executionEnvironment = {
-                enabled = false
+                enabled = false,
             },
             python = {
-                interpreterPath = "python"
+                interpreterPath = "python",
             },
             validation = {
                 enabled = false, -- ansible-lint kept breaking because of dynamic inventory files...
@@ -18,8 +18,8 @@ return {
                 --     enabled = true,
                 --     path = "ansible-lint"
                 -- }
-            }
-        }
+            },
+        },
     },
-    single_file_support = true
+    single_file_support = true,
 }
