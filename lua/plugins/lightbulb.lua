@@ -6,7 +6,7 @@ return {
 
         -- Whether or not to hide the lightbulb when the buffer is not focused.
         -- Only works if configured during NvimLightbulb.setup
-        hide_in_unfocused_buffer = true,
+        hide_in_unfocused_buffer = false,
 
         -- Whether or not to link the highlight groups automatically.
         -- Default highlight group links:
