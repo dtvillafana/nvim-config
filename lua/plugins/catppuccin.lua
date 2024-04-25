@@ -51,8 +51,8 @@ return {
             -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
     },
-    config = function (opts)
-       require('catppuccin').setup(opts)
+    config = function(opts)
+        require("catppuccin").setup(opts)
         vim.cmd.colorscheme("catppuccin-frappe")
-    end
+    end,
 }

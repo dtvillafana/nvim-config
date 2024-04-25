@@ -2,7 +2,7 @@ return {
     "folke/neodev.nvim",
     dependencies = {
         "nvim-dap-ui",
-        "nvim-treesitter"
+        "nvim-treesitter",
     },
     opts = {
         library = {
