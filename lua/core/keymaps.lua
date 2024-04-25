@@ -80,6 +80,9 @@ keymap("n", "<leader>e", "<CMD>Oil --float<CR>", opts)
 -- Orgmode -- main prefix is 'o' for "orgmode"
 keymap("n", "<leader>or", "<CMD>Telescope orgmode refile_heading<CR>", opts)
 
+-- View project hierarchy using nvim-tree
+keymap("n", "<leader>v", "<CMD>NvimTreeToggle<CR>", opts)
+
 -- my own lua commands -- main prefix is 'r' for "run"
 keymap("n", "<leader>r<Up>", "<CMD>lua ModifyFontSize(vim.v.count, 1)<CR>", opts)
 keymap("n", "<leader>r<Down>", "<CMD>lua ModifyFontSize(vim.v.count, -1)<CR>", opts)
