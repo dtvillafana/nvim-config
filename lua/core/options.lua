@@ -55,7 +55,16 @@ local globalopts = {
     table_mode_tablesize_map = "<leader>mt",
     table_mode_toggle_map = "m",
 }
+local match_ansible = function(path, bufnr, matches)
+    local p = path
+    if p:match(".*ansible.*yml") or p:match(".*ansible.*inventory") or p:match(".*ansible.*yaml") then
+        return "yaml.ansible"
+    else
+        return "yaml"
+    end
+end
 
+-- add or override non-builting filetypes
 vim.filetype.add({
     extension = {
         pnd = "poweron",
@@ -78,6 +87,11 @@ vim.filetype.add({
         INC = "poweron",
         symform = "poweron",
         SYMFORM = "poweron",
+        curl = "bash",
+        wget = "bash",
+        aspx = "xml",
+        ascx = "xml",
+        asmx = "xml",
     },
     pattern = {
         [".*.%d%d%d"] = "poweron",
@@ -88,31 +102,13 @@ vim.filetype.add({
         ["ELA.*"] = "poweron",
         ["ela.*"] = "poweron",
         ["/home/dvillafana/programs/poweron/specfiles/*.*"] = "poweron",
+        [".*inventory"] = match_ansible,
+        [".*yml"] = match_ansible,
+        [".*yaml"] = match_ansible,
     },
 })
 
 local autocommands = {
-    set_custom_extensions_to_bash = {
-        { "BufRead", "BufNewFile", "FileType" },
-        {
-            pattern = {
-                "*.curl",
-                "*.wget",
-                "*.aspx",
-                "*.ascx",
-                "*.asmx",
-                "*.config",
-                "*.yaml",
-                "*.yml",
-                "inventory",
-                "*.po",
-                "*.poweron",
-            },
-            callback = function()
-                Set_Filetype()
-            end,
-        },
-    },
     set_orgmode_telescope_refiling = {
         { "FileType" },
         {

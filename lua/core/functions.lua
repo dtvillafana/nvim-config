@@ -11,19 +11,6 @@ function ModifyFontSize(num, multiplier)
     require("notify").notify(vim.opt.guifont["_value"], vim.log.levels.INFO, { title = "Font Changed" })
 end
 
-function Set_Filetype()
-    local f = vim.api.nvim_buf_get_name(0)
-    if f:match(".curl$") or f:match(".wget$") then
-        vim.api.nvim_command("set filetype=bash")
-    elseif f:match(".aspx$") or f:match(".ascx$") or f:match(".asmx$") or f:match("[wW]web.[cC]onfig$") then
-        vim.api.nvim_command("set filetype=xml")
-    elseif f:match(".*ansible.*yml") or f:match(".*ansible.*inventory$") or f:match(".*ansible.*yaml") then
-        vim.api.nvim_command("set filetype=yaml.ansible")
-        -- elseif f:match(".*poweron") or f:match(".*po") then
-        --     vim.api.nvim_command("set filetype=poweron")
-    end
-end
-
 function SET_CWD_TO_BUF_DIR()
     local current_buf = vim.api.nvim_get_current_buf()
     local filepath = vim.api.nvim_buf_get_name(current_buf)
