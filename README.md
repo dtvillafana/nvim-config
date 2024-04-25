@@ -3,3 +3,6 @@
 
 Then run neovim.
 
+Let Lazy install everything.
+
+Then quit and re-run neovim.
