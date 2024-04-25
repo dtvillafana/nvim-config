@@ -35,6 +35,7 @@ return {
             },
         })
 
+        -- TODO: refactor this to use nvim api
         function SET_TERMINAL_KEYMAPS()
             local opts = { noremap = true }
             vim.api.nvim_buf_set_keymap(0, "t", "<leader><esc>", [[<C-\><C-n>]], opts)
