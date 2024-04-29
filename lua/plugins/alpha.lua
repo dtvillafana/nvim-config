@@ -73,7 +73,7 @@ return {
         local buttons = {
             type = "group",
             val = {
-                button("l", " -> Load last session", ":SessionLoadLast<CR>"),
+                button("l", " -> Load last session", ':lua require("resession").load("last")<CR>'),
                 button("f", " -> Find file", ":Telescope find_files<CR>"),
                 button("c", " -> Set Color Scheme", ":colorscheme catppuccin-latte<CR>"),
                 -- button("e", " -> New file", ":ene <BAR> startinsert <CR>"),

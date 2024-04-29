@@ -43,7 +43,11 @@ keymap("n", "<C-Right>", "<CMD>vertical resize +2<CR>", opts)
 -- Navigate/Control buffers
 keymap("n", "<S-l>", "<CMD>bnext<CR>", opts)
 keymap("n", "<S-h>", "<CMD>bprevious<CR>", opts)
-keymap("n", "<leader>bd", "<CMD>bdelete<CR>", opts)
+keymap("n", "<leader>bd", "<CMD>Bdelete<CR>", opts)
+
+-- Navigate/Control tabs
+keymap("n", "<S-Left>", "<CMD>tabnext<CR>", opts)
+keymap("n", "<S-Right>", "<CMD>tabprevious<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -83,6 +87,9 @@ keymap("n", "<leader>or", "<CMD>Telescope orgmode refile_heading<CR>", opts)
 -- View project hierarchy using nvim-tree
 keymap("n", "<leader>v", "<CMD>NvimTreeToggle<CR>", opts)
 
+-- create a new tab for scoped buffer session
+keymap("n", "<leader><C-t>", "<CMD>tabnew<CR>", opts)
+
 -- my own lua commands -- main prefix is 'r' for "run"
 keymap("n", "<leader>r<Up>", "<CMD>lua ModifyFontSize(vim.v.count, 1)<CR>", opts)
 keymap("n", "<leader>r<Down>", "<CMD>lua ModifyFontSize(vim.v.count, -1)<CR>", opts)
@@ -114,3 +121,11 @@ keymap("x", "J", "<CMD>move '>+1<CR>gv-gv", opts)
 keymap("x", "K", "<CMD>move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", "<CMD>move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", "<CMD>move '<-2<CR>gv-gv", opts)
+-- other keymap links, use gF to goto
+-- ../plugins/resession.lua:54
+-- ../plugins/toggleterm.lua:40
+-- ../plugins/flash.lua:181
+-- ../plugins/treesitter.lua:56
+-- ../core/options.lua:118
+-- ../plugins/oil.lua:60
+-- ../plugins/lsp/handlers.lua:63

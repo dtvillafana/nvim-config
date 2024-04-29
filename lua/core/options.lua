@@ -36,7 +36,7 @@ local options = {
     sidescrolloff = 4,
     showbreak = "﬌ ",
     guifont = "SauceCodePro Nerd Font Mono" .. ":h11", -- the font used in graphical neovim applications
-    sessionoptions = "buffers,curdir,folds,winpos,winsize",
+    sessionoptions = "buffers,curdir,folds,winpos,winsize,tabpages,globals",
     -- Table Mode
 }
 
