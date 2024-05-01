@@ -5,7 +5,7 @@ return {
         {
             "tiagovla/scope.nvim",
             lazy = false,
-            config = function (opts)
+            config = function(opts)
                 require("scope").setup(opts)
                 require("telescope").load_extension("scope")
             end,

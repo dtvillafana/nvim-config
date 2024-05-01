@@ -3,7 +3,7 @@ local opts = { noremap = true, silent = true }
 -- local term_opts = { silent = true }
 
 -- Shorten function name
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -98,6 +98,7 @@ keymap("n", "<leader>nd", '<CMD>lua require("notify").dismiss()<CR>', opts)
 keymap("n", "<leader>sq", "<CMD>DBUIToggle<CR>", opts)
 keymap("n", "<leader>gb", "<CMD>lua GIT_BLAME_CURRENT_LINE()<CR>", opts)
 
+
 -- Insert Mode --
 -- Press jk fast to return to normal mode
 keymap("i", "jk", "<ESC>", opts)
@@ -129,3 +130,4 @@ keymap("x", "<A-k>", "<CMD>move '<-2<CR>gv-gv", opts)
 -- ../core/options.lua:118
 -- ../plugins/oil.lua:60
 -- ../plugins/lsp/handlers.lua:63
+-- ../plugins/dap.lua:27

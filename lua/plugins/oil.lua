@@ -31,7 +31,7 @@ return {
         -- Send deleted files to the trash instead of permanently deleting them (:help oil-trash)
         delete_to_trash = true,
         -- Skip the confirmation popup for simple operations (:help oil.skip_confirm_for_simple_edits)
-        skip_confirm_for_simple_edits = false,
+        skip_confirm_for_simple_edits = true,
         -- Selecting a new/moved/renamed file or directory will prompt you to save changes first
         -- (:help prompt_save_on_select_new_entry)
         prompt_save_on_select_new_entry = true,
@@ -123,9 +123,9 @@ return {
             -- Width dimensions can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
             -- min_width and max_width can be a single value or a list of mixed integer/float types.
             -- max_width = {100, 0.8} means "the lesser of 100 columns or 80% of total"
-            max_width = 0.9,
+            max_width = { 50, 0.33 },
             -- min_width = {40, 0.4} means "the greater of 40 columns or 40% of total"
-            min_width = { 40, 0.4 },
+            min_width = { 40, 0.30 },
             -- optionally define an integer/float for the exact width of the preview window
             width = nil,
             -- Height dimensions can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
