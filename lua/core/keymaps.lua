@@ -98,7 +98,6 @@ keymap("n", "<leader>nd", '<CMD>lua require("notify").dismiss()<CR>', opts)
 keymap("n", "<leader>sq", "<CMD>DBUIToggle<CR>", opts)
 keymap("n", "<leader>gb", "<CMD>lua GIT_BLAME_CURRENT_LINE()<CR>", opts)
 
-
 -- Insert Mode --
 -- Press jk fast to return to normal mode
 keymap("i", "jk", "<ESC>", opts)
