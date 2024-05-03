@@ -19,6 +19,7 @@ return {
             "pylsp",
             "ansiblels",
             "tailwindcss",
+            "html",
         }
 
         local mason_ok, mason = pcall(require, "mason")

@@ -20,6 +20,7 @@ return {
             "vimdoc",
             "regex",
             "json",
+            "xml",
             "html",
             "markdown",
             "markdown_inline",
