@@ -112,4 +112,10 @@ end
 
 M.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
+-- Setup required for ufo
+M.capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+}
+
 return M

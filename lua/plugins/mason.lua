@@ -7,6 +7,7 @@ return {
         "mfussenegger/nvim-dap-python",
         "rcarriga/nvim-dap-ui",
         "nvimtools/none-ls.nvim",
+        { "kevinhwang91/nvim-ufo", dependencies = { "kevinhwang91/promise-async" } },
     },
     build = ":MasonUpdate", -- updates registry contents
     config = function()
@@ -20,6 +21,7 @@ return {
             "ansiblels",
             "tailwindcss",
             "html",
+            "lemminx",
         }
 
         local mason_ok, mason = pcall(require, "mason")
