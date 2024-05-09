@@ -54,6 +54,7 @@ local globalopts = {
     table_mode_map_prefix = "<leader>m",
     table_mode_tablesize_map = "<leader>mt",
     table_mode_toggle_map = "m",
+    neovide_scroll_animation_length = 0.1
 }
 local match_ansible = function(path, bufnr, matches)
     local p = path
@@ -124,8 +125,10 @@ local autocommands = {
 -- suppresses insert completion popup menu
 vim.opt.shortmess:append("c")
 
-for k, v in pairs(globalopts) do
-    vim.g[k] = v
+if vim.g.neovide then
+    for k, v in pairs(globalopts) do
+        vim.g[k] = v
+    end
 end
 
 for k, v in pairs(options) do
