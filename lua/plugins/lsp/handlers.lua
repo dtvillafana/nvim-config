@@ -69,6 +69,8 @@ local function lsp_keymaps(bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lgs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lgr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ldl", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
     vim.api.nvim_buf_set_keymap(
         bufnr,
         "n",
@@ -90,14 +92,17 @@ local function lsp_keymaps(bufnr)
         '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>',
         opts
     )
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ldl", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 end
 
 M.on_attach = function(client, bufnr)
     if client.name == "tsserver" then
         client.server_capabilities.documentFormattingProvider = false
+    end
+    if client.name == "lemminx" then
+        print("attaching lemminx...")
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.formatting = false
     end
     lsp_keymaps(bufnr)
     lsp_highlight_document(client)

@@ -99,8 +99,9 @@ keymap("n", "<leader>sq", "<CMD>DBUIToggle<CR>", opts)
 keymap("n", "<leader>gb", "<CMD>lua GIT_BLAME_CURRENT_LINE()<CR>", opts)
 
 -- Insert Mode --
--- Press jk fast to return to normal mode
+-- Press jk or kj fast to return to normal mode
 keymap("i", "jk", "<ESC>", opts)
+keymap("i", "kj", "<ESC>", opts)
 
 -- Visual Mode --
 -- yank to system clipboard
