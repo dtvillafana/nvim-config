@@ -81,6 +81,7 @@ keymap("n", "<leader>fo", "<CMD>Telescope orgmode search_headings<CR>", opts)
 keymap("n", "<leader>fq", "<CMD>Telescope quickfix<CR>", opts)
 keymap("n", "<leader>fn", "<CMD>Telescope notify<CR>", opts)
 keymap("n", "<leader>fm", "<CMD>Telescope toggleterm_manager<CR>", opts)
+keymap("n", "<leader>fk", "<CMD>Telescope keymaps<CR>", opts)
 keymap("n", "<leader>ft", "<CMD>TodoTelescope<CR>", opts)
 keymap("n", "<leader>e", "<CMD>Oil --float<CR>", opts)
 
