@@ -1,8 +1,8 @@
 return {
     "akinsho/bufferline.nvim",
-    version = "v4.5.3",
     dependencies = {
         "nvim-tree/nvim-web-devicons",
+        "catppuccin/nvim",
     },
     config = function()
         local status_ok, bufferline = pcall(require, "bufferline")
