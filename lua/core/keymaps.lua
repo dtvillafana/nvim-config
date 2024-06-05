@@ -79,10 +79,13 @@ keymap("n", "<leader>fb", "<CMD>Telescope buffers<CR>", opts)
 keymap("n", "<leader>fd", "<CMD>Telescope diagnostics<CR>", opts)
 keymap("n", "<leader>fo", "<CMD>Telescope orgmode search_headings<CR>", opts)
 keymap("n", "<leader>fq", "<CMD>Telescope quickfix<CR>", opts)
+keymap("n", "<leader>fn", "<CMD>Telescope notify<CR>", opts)
+keymap("n", "<leader>fm", "<CMD>Telescope toggleterm_manager<CR>", opts)
+keymap("n", "<leader>ft", "<CMD>TodoTelescope<CR>", opts)
 keymap("n", "<leader>e", "<CMD>Oil --float<CR>", opts)
 
 -- Orgmode -- main prefix is 'o' for "orgmode"
-keymap("n", "<leader>or", "<CMD>Telescope orgmode refile_heading<CR>", opts)
+-- /home/dvillafana/git-repos/dotfiles/nvim/lua/core/options.lua +119
 
 -- View project hierarchy using nvim-tree
 keymap("n", "<leader>v", "<CMD>NvimTreeToggle<CR>", opts)

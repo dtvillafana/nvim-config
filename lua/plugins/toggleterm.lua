@@ -95,7 +95,8 @@ return {
                 hidden = true,
                 direction = "tab",
                 id = count + 30,
-                display_name = "Terminal " .. count,
+                name = "tab_term " .. count,
+                display_name = "tab_term " .. count,
             })
             tabTerm:toggle()
         end

@@ -1,5 +1,9 @@
 return {
     "dtvillafana/orgmode",
+    dependencies = {
+        "rcarriga/nvim-notify",
+        "folke/noice.nvim",
+    },
     event = "VeryLazy",
     ft = { "org" },
     config = function()
@@ -64,23 +68,22 @@ return {
                             string.format("%s: <%s>", task.type, task.time:to_string()),
                         })
                     end
-                    if not vim.tbl_isempty(result) then
-                        require("orgmode.notifications.notification_popup"):new({ content = result })
+
+                    local msg = ""
+                    for _, val in ipairs(result) do
+                        msg = msg .. val .. "\n"
+                    end
+
+                    if msg ~= "" then
+                        require("noice").notify(tostring(msg), "info", {title = "OrgNotify",
+                            on_open = function(win)
+                                local buf_id  = vim.api.nvim_win_get_buf(win)
+                                vim.api.nvim_set_option_value("filetype", "org", {buf = buf_id})
+                            end,
+                        })
                     end
                 end,
-                cron_notifier = function(tasks)
-                    for _, task in ipairs(tasks) do
-                        local title = string.format("%s (%s)", task.category, task.humanized_duration)
-                        local subtitle = string.format("%s %s %s", string.rep("*", task.level), task.todo, task.title)
-                        local date = string.format("%s: %s", task.type, task.time:to_string())
-                        if vim.fn.executable("notify-send") == 1 then
-                            vim.loop.spawn(
-                                "notify-send",
-                                { args = { string.format("%s\n%s\n%s", title, subtitle, date) } }
-                            )
-                        end
-                    end
-                end,
+                cron_notifier = nil,
             },
         })
     end,
