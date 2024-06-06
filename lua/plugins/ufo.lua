@@ -10,7 +10,6 @@ return {
             "Trouble",
             "lazy",
             "mason",
-            "org"
         },
     },
     config = function(opts)
