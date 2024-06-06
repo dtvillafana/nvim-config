@@ -39,9 +39,10 @@ local options = {
     updatetime = 300, -- faster completion (4000ms default)
     wrap = true, -- wrap lines that are too long to display on the screen
     writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+    guifont = "SauceCodePro Nerd Font Mono" .. ":h11", -- the font used in graphical neovim applications            
 }
 
-local globalopts = {
+local neovide_opts = {
     -- neovide_transparency = 0.8,
     neovide_cursor_vfx_mode = "railgun",
     neovide_cursor_vfx_particle_density = 20.0,
@@ -51,12 +52,16 @@ local globalopts = {
     -- only for railgun vfx mode
     neovide_cursor_vfx_particle_phase = 0.5, -- Sets the mass movement of particles, or how individual each one acts. The higher the value, the less particles rotate in accordance to each other, the lower, the more line-wise all particles become.
     neovide_cursor_vfx_particle_curl = 0.0, -- Sets the velocity rotation speed of particles. The higher, the less particles actually move and look more "nervous", the lower, the more it looks like a collapsing sine wave.
+    neovide_scroll_animation_length = 0.1,
+}
+
+local globalopts = {
     table_mode_disable_mappings = "true",
     table_mode_map_prefix = "<leader>m",
     table_mode_tablesize_map = "<leader>mt",
     table_mode_toggle_map = "m",
-    neovide_scroll_animation_length = 0.1
 }
+
 local match_ansible = function(path, bufnr, matches)
     local p = path
     if p:match(".*ansible.*yml") or p:match(".*ansible.*inventory") or p:match(".*ansible.*yaml") then
@@ -127,9 +132,13 @@ local autocommands = {
 vim.opt.shortmess:append("c")
 
 if vim.g.neovide then
-    for k, v in pairs(globalopts) do
+    for k, v in pairs(neovide_opts) do
         vim.g[k] = v
     end
+end
+
+for k, v in pairs(globalopts) do
+    vim.g[k] = v
 end
 
 for k, v in pairs(options) do
