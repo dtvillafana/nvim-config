@@ -40,6 +40,12 @@ return {
                 priority = 1,
                 highlight = highlight,
             },
+            exclude = {
+                filetypes = {
+                    "oil",
+                    "org"
+                }
+            }
         })
     end,
 }
