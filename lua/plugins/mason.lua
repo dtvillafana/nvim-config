@@ -13,7 +13,6 @@ return {
     config = function()
         local ensure_servers_installed = {
             "lua_ls",
-            "omnisharp",
             "bashls",
             "jsonls",
             "tsserver",
