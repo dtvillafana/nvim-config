@@ -14,6 +14,12 @@ return {
         local actions = require("telescope.actions")
         telescope.setup({
             defaults = {
+                layout_strategy = "vertical",
+                layout_defaults = {
+                    vertical = {
+                        preview_height = 0.5, -- adjust to taste
+                    }
+                },
                 prompt_prefix = " ",
                 selection_caret = " ",
                 path_display = { "smart" },

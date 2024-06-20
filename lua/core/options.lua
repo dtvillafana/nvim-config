@@ -99,9 +99,13 @@ vim.filetype.add({
         aspx = "xml",
         ascx = "xml",
         asmx = "xml",
+        jinja = "jinja",
+        jinja2 = "jinja",
+        j2 = "jinja",
     },
     pattern = {
         [".*.%d%d%d"] = "poweron",
+        [".*django.*html.*"] = "jinja",
         ["EAR.*"] = "poweron",
         ["ear.*"] = "poweron",
         ["EMA.*"] = "poweron",
