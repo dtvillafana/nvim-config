@@ -67,6 +67,19 @@ keymap("n", "<leader>tj", "<CMD>lua _NODE_TOGGLE()<CR>", { noremap = false, sile
 keymap("n", "<leader>tn", "<CMD>lua _NCDU_TOGGLE()<CR>", { noremap = false, silent = true })
 if READ_SHELL_COMMAND("uname -r"):match(".*WSL2") then
     keymap("n", "<leader>tp", "<CMD>lua _POWERSHELL_TOGGLE()<CR>", { noremap = false, silent = true })
+
+    -- remap f1 and f2 to esc
+    keymap("n", "<F1>", "<Esc>", opts)
+    keymap("i", "<F1>", "<Esc>", opts)
+    keymap("v", "<F1>", "<Esc>", opts)
+    keymap("x", "<F1>", "<Esc>", opts)
+    keymap("c", "<F1>", "<Esc>", opts)
+
+    keymap("n", "<F2>", "<Esc>", opts)
+    keymap("i", "<F2>", "<Esc>", opts)
+    keymap("v", "<F2>", "<Esc>", opts)
+    keymap("x", "<F2>", "<Esc>", opts)
+    keymap("c", "<F2>", "<Esc>", opts)
 end
 
 -- Telescope -- main prefix is 'f' for "find"
