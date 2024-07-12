@@ -124,6 +124,9 @@ keymap("i", "kj", "<ESC>", opts)
 -- yank to system clipboard
 keymap("v", "<leader>y", '"+y', opts)
 
+-- global replace visual selection binding
+keymap("v", "<leader>r", '"hy:%s/<C-r>h//g<left><left>', opts)
+
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
