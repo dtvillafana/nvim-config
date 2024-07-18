@@ -5,6 +5,7 @@ return {
         "nvim-treesitter/nvim-treesitter",
         "nvim-telescope/telescope-media-files.nvim",
         "nvim-telescope/telescope-frecency.nvim",
+        "nvim-orgmode/telescope-orgmode.nvim",
     },
     config = function()
         local status_ok, telescope = pcall(require, "telescope")

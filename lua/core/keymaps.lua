@@ -54,7 +54,7 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- remove highlighting
-keymap("n", "<leader>nh", "<CMD>nohl<CR>", opts)
+keymap("n", "<leader>hr", "<CMD>nohl<CR>", opts)
 
 -- Terminals -- main prefix is 't' for "terminal"
 keymap("n", "<leader>tt", "<CMD>lua _TERM_TOGGLE_TAB(vim.v.count)<CR>", { noremap = false, silent = true })
@@ -95,6 +95,7 @@ keymap("n", "<leader>fq", "<CMD>Telescope quickfix<CR>", opts)
 keymap("n", "<leader>fn", "<CMD>Telescope notify<CR>", opts)
 keymap("n", "<leader>fm", "<CMD>Telescope toggleterm_manager<CR>", opts)
 keymap("n", "<leader>fk", "<CMD>Telescope keymaps<CR>", opts)
+keymap("n", "<leader>fs", "<CMD>Telescope lsp_document_symbols<CR>", opts)
 keymap("n", "<leader>ft", "<CMD>TodoTelescope<CR>", opts)
 keymap("n", "<leader>e", "<CMD>Oil --float<CR>", opts)
 
@@ -111,7 +112,7 @@ keymap("n", "<leader><C-t>", "<CMD>tabnew<CR>", opts)
 keymap("n", "<leader>r<Up>", "<CMD>lua ModifyFontSize(vim.v.count, 1)<CR>", opts)
 keymap("n", "<leader>r<Down>", "<CMD>lua ModifyFontSize(vim.v.count, -1)<CR>", opts)
 keymap("n", "<leader>rc", "<CMD>lua SET_CWD_TO_BUF_DIR()<CR>", opts)
-keymap("n", "<leader>nd", '<CMD>lua require("notify").dismiss()<CR>', opts)
+keymap("n", "<leader>pd", '<CMD>lua require("notify").dismiss()<CR>', opts)
 keymap("n", "<leader>sq", "<CMD>DBUIToggle<CR>", opts)
 keymap("n", "<leader>gb", "<CMD>lua GIT_BLAME_CURRENT_LINE()<CR>", opts)
 

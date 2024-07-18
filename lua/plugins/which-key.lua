@@ -21,6 +21,7 @@ return {
                 g = true, -- bindings for prefixed with g
             },
         },
+        delay = 500,
         -- add operators that will trigger motion and text object completion
         -- to enable all native operators, set the preset / operators plugin above
         operators = { gc = "Comments" },
@@ -57,7 +58,10 @@ return {
         hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
         show_help = true, -- show help message on the command line when the popup is visible
         show_keys = true, -- show the currently pressed key and its label as a message in the command line
-        triggers = "auto", -- automatically setup triggers
+        triggers = {
+            "<auto>",
+            mode = "nixsotc"
+        }, -- automatically setup triggers
         -- triggers = {"<leader>"} -- or specify a list manually
         triggers_blacklist = {
             -- list of mode / prefixes that should never be hooked by WhichKey
