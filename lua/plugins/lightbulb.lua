@@ -105,7 +105,7 @@ return {
         -- Only works if configured during NvimLightbulb.setup
         autocmd = {
             -- Whether or not to enable autocmd creation.
-            enabled = false,
+            enabled = true,
             -- See |updatetime|.
             -- Set to a negative value to avoid setting the updatetime.
             updatetime = 200,

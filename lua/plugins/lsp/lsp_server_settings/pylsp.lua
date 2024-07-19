@@ -4,7 +4,7 @@ return {
             plugins = {
                 autopep8 = "enabled",
                 pycodestyle = {
-                    ignore = { "E501" },
+                    ignore = { "E501", "W503" },
                     maxLineLength = 200, -- this is actually useless because we are ignoring E501
                 },
             },
