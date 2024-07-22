@@ -1,5 +1,6 @@
 return {
-    "nvim-orgmode/telescope-orgmode.nvim",
+    -- TODO: check upstream to see if my PR was merged
+    "dtvillafana/telescope-orgmode.nvim",
     event = "VeryLazy",
     dependencies = {
         "dtvillafana/orgmode",
