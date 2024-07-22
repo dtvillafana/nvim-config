@@ -10,6 +10,16 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- other keymap links, use gF to goto
+-- ../plugins/resession.lua:54
+-- ../plugins/toggleterm.lua:40
+-- ../plugins/flash.lua:181
+-- ../plugins/treesitter.lua:56
+-- ../core/options.lua:118
+-- ../plugins/oil.lua:60
+-- ../plugins/lsp/handlers.lua:63
+-- ../plugins/dap.lua:27
+
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -143,12 +153,3 @@ keymap("x", "J", "<CMD>move '>+1<CR>gv-gv", opts)
 keymap("x", "K", "<CMD>move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", "<CMD>move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", "<CMD>move '<-2<CR>gv-gv", opts)
--- other keymap links, use gF to goto
--- ../plugins/resession.lua:54
--- ../plugins/toggleterm.lua:40
--- ../plugins/flash.lua:181
--- ../plugins/treesitter.lua:56
--- ../core/options.lua:118
--- ../plugins/oil.lua:60
--- ../plugins/lsp/handlers.lua:63
--- ../plugins/dap.lua:27
