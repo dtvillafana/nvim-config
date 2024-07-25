@@ -41,6 +41,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- exiting controls
 keymap("n", "<leader>q", "<CMD>q<CR>", opts)
+keymap("n", "<A-q>", "<CMD>tabclose<CR>", opts)
 keymap("n", "<leader>w", "<CMD>w!<CR>", opts)
 keymap("n", "<leader>x", "<CMD>x<CR>", opts)
 
@@ -56,8 +57,9 @@ keymap("n", "<S-h>", "<CMD>bprevious<CR>", opts)
 keymap("n", "<leader>bd", "<CMD>Bdelete<CR>", opts)
 
 -- Navigate/Control tabs
-keymap("n", "<S-Left>", "<CMD>tabnext<CR>", opts)
-keymap("n", "<S-Right>", "<CMD>tabprevious<CR>", opts)
+keymap("n", "<A-h>", "<CMD>tabnext<CR>", opts)
+keymap("n", "<A-l>", "<CMD>tabprevious<CR>", opts)
+keymap("n", "<leader><C-t>", "<CMD>tabnew<CR>", opts)
 
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
@@ -115,8 +117,6 @@ keymap("n", "<leader>e", "<CMD>Oil --float<CR>", opts)
 -- View project hierarchy using nvim-tree
 keymap("n", "<leader>v", "<CMD>NvimTreeToggle<CR>", opts)
 
--- create a new tab for scoped buffer session
-keymap("n", "<leader><C-t>", "<CMD>tabnew<CR>", opts)
 
 -- my own lua commands -- main prefix is 'r' for "run"
 keymap("n", "<leader>r<Up>", "<CMD>lua ModifyFontSize(vim.v.count, 1)<CR>", opts)
