@@ -12,47 +12,53 @@ return {
         if not status_ok then
             return
         end
+        local layout = ""
+        if vim.o.columns < 100 then
+            layout = "vertical"
+        else
+            layout = "horizontal"
+        end
+
         local actions = require("telescope.actions")
         telescope.setup({
             defaults = {
-                layout_strategy = "vertical",
-                layout_defaults = {
+                layout_strategy = layout,
+                scroll_strategy = "limit",
+                layout_config = {
+                    bottom_pane = {
+                        height = 25,
+                        preview_cutoff = 120,
+                        prompt_position = "top",
+                    },
+                    center = {
+                        height = 0.4,
+                        preview_cutoff = 40,
+                        prompt_position = "top",
+                        width = 0.5,
+                    },
+                    cursor = {
+                        height = 0.9,
+                        preview_cutoff = 40,
+                        width = 0.8,
+                    },
+                    horizontal = {
+                        height = 0.9,
+                        preview_cutoff = 240,
+                        prompt_position = "bottom",
+                        width = 0.8,
+                    },
                     vertical = {
-                        preview_height = 0.5, -- adjust to taste
-                    }
+                        height = 0.9,
+                        preview_cutoff = 40,
+                        prompt_position = "bottom",
+                        width = 0.8,
+                    },
                 },
                 prompt_prefix = " ",
                 selection_caret = " ",
                 path_display = { "smart" },
-                bottom_pane = {
-                    height = 25,
-                    preview_cutoff = 120,
-                    prompt_position = "top",
-                },
-                center = {
-                    height = 0.4,
-                    preview_cutoff = 40,
-                    prompt_position = "top",
-                    width = 0.5,
-                },
-                cursor = {
-                    height = 0.9,
-                    preview_cutoff = 40,
-                    width = 0.8,
-                },
-                horizontal = {
-                    height = 0.9,
-                    preview_cutoff = 240,
-                    prompt_position = "bottom",
-                    width = 0.8,
-                },
-                vertical = {
-                    height = 0.9,
-                    preview_cutoff = 40,
-                    prompt_position = "bottom",
-                    width = 0.8,
-                },
             },
+            use_less = false,
             vimgrep_arguments = {
                 "rg",
                 "--color=never",
