@@ -13,7 +13,7 @@ return {
             return
         end
         local layout = ""
-        if vim.o.columns < 100 then
+        if vim.o.lines > 100 then
             layout = "vertical"
         else
             layout = "horizontal"
@@ -27,7 +27,7 @@ return {
                 layout_config = {
                     bottom_pane = {
                         height = 25,
-                        preview_cutoff = 120,
+                        preview_cutoff = 100,
                         prompt_position = "top",
                     },
                     center = {
@@ -43,7 +43,7 @@ return {
                     },
                     horizontal = {
                         height = 0.9,
-                        preview_cutoff = 240,
+                        preview_cutoff = 100,
                         prompt_position = "bottom",
                         width = 0.8,
                     },

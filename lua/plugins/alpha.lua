@@ -51,7 +51,7 @@ return {
 
         local dynamic_header = {
             type = "terminal",
-            command = "chafa -c full --fg-only --symbols braille ~/Sync/assets/gif/crusader.gif",
+            command = "chafa -c full --fg-only --symbols braille ~/git-repos/dotfiles/nvim/sources/images/matrix.gif",
             width = 100,
             height = 45,
             opts = {
