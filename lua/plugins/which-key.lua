@@ -60,7 +60,7 @@ return {
         show_keys = true, -- show the currently pressed key and its label as a message in the command line
         triggers = {
             "<auto>",
-            mode = "nixsotc"
+            mode = "nixsoc"
         }, -- automatically setup triggers
         -- triggers = {"<leader>"} -- or specify a list manually
         triggers_blacklist = {
@@ -69,6 +69,7 @@ return {
             -- most people should not need to change this
             i = { "j", "k" },
             v = { "j", "k" },
+            t = { "<leader>" },
         },
         -- disable the WhichKey popup for certain buf types and file types.
         -- Disabled by deafult for Telescope
