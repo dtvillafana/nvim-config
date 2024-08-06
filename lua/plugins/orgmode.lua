@@ -23,7 +23,7 @@ return {
             org_agenda_files = { os.getenv("ORG") .. "/*" },
             org_default_notes_file = os.getenv("ORG") .. "/refile.org",
             org_hide_emphasis_markers = true,
-            org_todo_keywords = { "TODO", "MEET", "CALL", "EVENT", "WAITING", "|", "DONE", "CANCELED" },
+            org_todo_keywords = { "TODO(t)", "MEET(m)", "CALL(c)", "EVENT(e)", "WAITING(w)", "|", "DONE(d)", "CANCELED(a)" },
             org_agenda_skip_deadline_if_done = true,
             org_agenda_skip_scheduled_if_done = true,
             org_capture_templates = {

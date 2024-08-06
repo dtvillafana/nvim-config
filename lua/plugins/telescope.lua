@@ -43,13 +43,13 @@ return {
                     },
                     horizontal = {
                         height = 0.9,
-                        preview_cutoff = 100,
+                        preview_cutoff = 70,
                         prompt_position = "bottom",
                         width = 0.8,
                     },
                     vertical = {
                         height = 0.9,
-                        preview_cutoff = 40,
+                        preview_cutoff = 100,
                         prompt_position = "bottom",
                         width = 0.8,
                     },
