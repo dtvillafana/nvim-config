@@ -61,10 +61,6 @@ keymap("n", "<A-h>", "<CMD>tabnext<CR>", opts)
 keymap("n", "<A-l>", "<CMD>tabprevious<CR>", opts)
 keymap("n", "<leader><C-t>", "<CMD>tabnew<CR>", opts)
 
--- Move text up and down
-keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
-keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
-
 -- remove highlighting
 keymap("n", "<leader>hr", "<CMD>nohl<CR>", opts)
 
@@ -141,15 +137,3 @@ keymap("v", "<leader>r", '"hy:%s/<C-r>h//g<left><left>', opts)
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
-
--- Move text up and down
-keymap("v", "<A-j>", "<CMD>m .+1<CR>==", opts)
-keymap("v", "<A-k>", "<CMD>m .-2<CR>==", opts)
--- keymap("v", "p", '"_dP', opts)
-
--- Visual Block --
--- Move text up and down
-keymap("x", "J", "<CMD>move '>+1<CR>gv-gv", opts)
-keymap("x", "K", "<CMD>move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", "<CMD>move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", "<CMD>move '<-2<CR>gv-gv", opts)

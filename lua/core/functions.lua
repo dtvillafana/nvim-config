@@ -37,3 +37,14 @@ function GIT_BLAME_CURRENT_LINE()
     end
     gitsigns.blame_line()
 end
+
+--  function for slicing tables
+function table.slice(tbl, first, last, step)
+    local sliced = {}
+
+    for i = first or 1, last or #tbl, step or 1 do
+        sliced[#sliced+1] = tbl[i]
+    end
+
+    return sliced
+end
