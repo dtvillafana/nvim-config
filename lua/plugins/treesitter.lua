@@ -29,6 +29,8 @@ return {
             "ledger",
             "sql",
             "poweron",
+            "tsx",
+            "toml",
         },
         ignore_install = {
             "csv",
