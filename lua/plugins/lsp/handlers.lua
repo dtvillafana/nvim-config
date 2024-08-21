@@ -63,18 +63,19 @@ end
 local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ld", "<cmd>Lspsaga goto_definition<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lg", "<cmd>Lspsaga goto_definition<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lp", "<cmd>Lspsaga peek_definition<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lh", "<cmd>Lspsaga hover_doc<CR>", opts)
-    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>li", "<cmd>Lspsaga goto_type_definition<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lo", "<cmd>Lspsaga outline<CR>", opts)
-    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lgr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lr", "<cmd>Lspsaga rename<CR>", opts)
 
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>la", "<cmd>Lspsaga code_action<CR>", opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ldn", '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ldN", '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ldv", '<cmd>Lspsaga show_buf_diagnostics<CR>', opts)
     vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 end
 
