@@ -57,20 +57,20 @@ return {
                 prompt_prefix = " ",
                 selection_caret = " ",
                 path_display = { "smart" },
+                vimgrep_arguments = {
+                    "rg",
+                    "--color=never",
+                    "--no-heading",
+                    "--with-filename",
+                    "--line-number",
+                    "--column",
+                    "--smart-case",
+                    "--no-ignore-vcs",
+                    "--follow",
+                    "--hidden"
+                },
             },
             use_less = false,
-            vimgrep_arguments = {
-                "rg",
-                "--color=never",
-                "--no-heading",
-                "--with-filename",
-                "--line-number",
-                "--column",
-                "--smart-case",
-                "--no-ignore-vcs",
-                "--follow",
-                "--hidden"
-            },
             mappings = {
                 i = {
                     ["<C-n>"] = actions.cycle_history_next,
