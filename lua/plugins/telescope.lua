@@ -68,6 +68,8 @@ return {
                 "--column",
                 "--smart-case",
                 "--no-ignore-vcs",
+                "--follow",
+                "--hidden"
             },
             mappings = {
                 i = {
