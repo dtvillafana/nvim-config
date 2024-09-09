@@ -1,3 +1,4 @@
+-- INFO: none-ls is for getting neovim formatting and diagnostics bindings for tooling that does not have an LSP server
 return {
     "nvimtools/none-ls.nvim",
     lazy = true,

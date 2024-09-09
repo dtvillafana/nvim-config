@@ -1,3 +1,4 @@
+-- INFO: Mason and mason-lspconfig is for installing and configuring LSP servers for neovim integration
 return {
     "williamboman/mason.nvim",
     dependencies = {
@@ -11,18 +12,26 @@ return {
     },
     build = ":MasonUpdate", -- updates registry contents
     config = function()
-        local ensure_servers_installed = {
-            "lua_ls",
-            "bashls",
-            "jsonls",
-            "tsserver",
-            "pylsp",
-            "ansiblels",
-            "tailwindcss",
-            "html",
-            "lemminx",
-        }
 
+        -- servers are specified by name in the ./lsp/lsp_server_settings/ directory
+        local function get_servers_from_dir(dir_path)
+            local servers = {}
+            local handle = vim.loop.fs_scandir(dir_path)
+            if handle then
+                local name,_ = vim.loop.fs_scandir_next(handle)
+                while name do
+                    local server = name:gsub('%.lua$', '')
+                    table.insert(servers, server)
+                    name,_ = vim.loop.fs_scandir_next(handle)
+                end
+            else
+                vim.notify("Could not find LSP server config path: " .. dir_path)
+            end
+            return servers
+        end
+
+        local dir_path = vim.fn.stdpath('config') .. '/lua/plugins/lsp/lsp_server_settings'
+        local ensure_servers_installed = get_servers_from_dir(dir_path)
         local mason_ok, mason = pcall(require, "mason")
         if not mason_ok then
             print("LSP error, failed to load mason.nvim!")
