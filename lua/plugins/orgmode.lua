@@ -43,7 +43,7 @@ return {
                 org = {
                     org_timestamp_up_day = "<C-=>",
                     org_timestamp_down_day = "<C-->",
-                    -- org_refile = "",
+                    org_refile = false,
                 },
                 agenda = {
                     org_agenda_later = "f",

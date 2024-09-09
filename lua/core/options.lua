@@ -120,19 +120,6 @@ vim.filetype.add({
     },
 })
 
-local autocommands = {
-    set_orgmode_telescope_refiling = {
-        { "FileType" },
-        {
-            pattern = ".*org",
-            group = vim.api.nvim_create_augroup("orgmode_telescope_nvim", { clear = true }),
-            callback = function()
-                vim.keymap.set("n", "<leader>or", require("telescope").extensions.orgmode.refile_heading)
-            end,
-        },
-    },
-}
-
 -- suppresses insert completion popup menu
 vim.opt.shortmess:append("c")
 
@@ -148,12 +135,6 @@ end
 
 for k, v in pairs(options) do
     vim.opt[k] = v
-end
-
-for _, value in pairs(autocommands) do
-    local event = value[1]
-    local opts = value[2]
-    vim.api.nvim_create_autocmd(event, opts)
 end
 
 vim.cmd("set whichwrap+=<,>,[,],h,l")
