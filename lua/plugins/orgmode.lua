@@ -26,6 +26,25 @@ return {
             org_todo_keywords = { "TODO(t)", "MEET(m)", "CALL(c)", "EVENT(e)", "WAITING(w)", "|", "DONE(d)", "CANCELED(a)" },
             org_agenda_skip_deadline_if_done = true,
             org_agenda_skip_scheduled_if_done = true,
+            org_custom_exports = {
+                f = {
+                    label = 'Export to standalone PDF',
+                    action = function(exporter)
+                        local current_file = vim.api.nvim_buf_get_name(0)
+                        local target = vim.fn.fnamemodify(current_file, ':p:r')..'.pdf'
+                        local command = {'pandoc', current_file, '-o', target, '--standalone'}
+                        local on_success = function(output)
+                            print('Success! exported to ' .. target)
+                            vim.api.nvim_echo({{ table.concat(output, '\n') }}, true, {})
+                        end
+                        local on_error = function(err)
+                            print('Error!')
+                            vim.api.nvim_echo({{ table.concat(err, '\n'), 'ErrorMsg' }}, true, {})
+                        end
+                        return exporter(command , target, on_success, on_error)
+                    end
+                }
+            },
             org_capture_templates = {
                 t = { description = "Task", template = "* TODO %?\n  %u" },
                 -- the string.format is performed first which passes in the
