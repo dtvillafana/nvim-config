@@ -31,6 +31,7 @@ return {
             "poweron",
             "tsx",
             "toml",
+            "nix",
         },
         ignore_install = {
             "csv",
