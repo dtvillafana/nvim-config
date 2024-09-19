@@ -1,8 +1,8 @@
 return {
-    "HiPhish/rainbow-delimiters.nvim",
-    config = function ()
-        local rd = require("rainbow-delimiters")
-        local rds = require("rainbow-delimiters.setup")
+    'HiPhish/rainbow-delimiters.nvim',
+    config = function()
+        local rd = require('rainbow-delimiters')
+        local rds = require('rainbow-delimiters.setup')
         rds.setup({
             strategy = {
                 [''] = rd.strategy['global'],
@@ -26,5 +26,5 @@ return {
                 'RainbowDelimiterCyan',
             },
         })
-    end
+    end,
 }

@@ -1,16 +1,16 @@
 return {
-    cmd = { "ansible-language-server", "--stdio" },
-    filetypes = { "yaml.ansible" },
+    cmd = { 'ansible-language-server', '--stdio' },
+    filetypes = { 'yaml.ansible' },
     settings = {
         ansible = {
             ansible = {
-                path = "ansible",
+                path = 'ansible',
             },
             executionEnvironment = {
                 enabled = false,
             },
             python = {
-                interpreterPath = "python",
+                interpreterPath = 'python',
             },
             validation = {
                 enabled = false, -- ansible-lint kept breaking because of dynamic inventory files...

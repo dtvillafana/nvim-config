@@ -3,7 +3,7 @@ return {
     config = function()
         require('lspsaga').setup({
             ui = {
-                virtual_text = false
+                virtual_text = false,
             },
             outline = {
                 layout = 'float',
@@ -12,6 +12,6 @@ return {
     end,
     dependencies = {
         'nvim-treesitter/nvim-treesitter', -- optional
-        'nvim-tree/nvim-web-devicons',     -- optional
-    }
+        'nvim-tree/nvim-web-devicons', -- optional
+    },
 }

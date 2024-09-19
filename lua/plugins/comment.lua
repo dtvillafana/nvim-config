@@ -1,7 +1,7 @@
 return {
-    "numToStr/Comment.nvim",
+    'numToStr/Comment.nvim',
     dependencies = {
-        "nvim-treesitter/nvim-treesitter",
+        'nvim-treesitter/nvim-treesitter',
     },
     opts = {
         -- add any options here

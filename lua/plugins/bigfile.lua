@@ -3,5 +3,5 @@ return {
     event = 'BufReadPre',
     opts = {
         filesize = 2,
-    }
+    },
 }

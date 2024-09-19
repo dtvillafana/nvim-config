@@ -20,7 +20,9 @@ return {
                 key = 'fics',
                 value_func = function(var)
                     -- to make sql server work you might have to URL encode special characters and/or add some parameters to the end of your connection string:
-                    return 'sqlserver://sa:' .. var .. '@172.20.102.60:1433/fics_test?Encrypt=1;trustServerCertificate=1'
+                    return 'sqlserver://sa:'
+                        .. var
+                        .. '@172.20.102.60:1433/fics_test?Encrypt=1;trustServerCertificate=1'
                 end,
             },
             {
@@ -35,7 +37,7 @@ return {
         for _, item in ipairs(env_vars) do
             if item.env_var ~= nil then
                 dbs = vim.tbl_deep_extend('force', dbs, {
-                    [item.key] = item.value_func(item.env_var)
+                    [item.key] = item.value_func(item.env_var),
                 })
             end
         end

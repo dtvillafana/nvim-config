@@ -1,3 +1,3 @@
 return {
-    "ledger/vim-ledger",
+    'ledger/vim-ledger',
 }

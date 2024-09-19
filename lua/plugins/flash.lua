@@ -1,9 +1,9 @@
 return {
-    "folke/flash.nvim",
-    event = "VeryLazy",
+    'folke/flash.nvim',
+    event = 'VeryLazy',
     ---@type Flash.Config
     opts = {
-        labels = "asdfghjkl",
+        labels = 'asdfghjkl',
         search = {
             -- search/jump in all windows
             multi_window = true,
@@ -21,16 +21,16 @@ return {
             --   mode = function(str)
             --     return "\\<" .. str
             --   end,
-            mode = "exact",
+            mode = 'exact',
             -- behave like `incsearch`
             incremental = false,
             -- Excluded filetypes and custom window filters
             ---@type (string|fun(win:window))[]
             exclude = {
-                "notify",
-                "cmp_menu",
-                "noice",
-                "flash_prompt",
+                'notify',
+                'cmp_menu',
+                'noice',
+                'flash_prompt',
                 function(win)
                     -- exclude non-focusable windows
                     return not vim.api.nvim_win_get_config(win).focusable
@@ -39,7 +39,7 @@ return {
             -- Optional trigger character that needs to be typed before
             -- a jump label can be used. It's NOT recommended to set this,
             -- unless you know what you're doing
-            trigger = "",
+            trigger = '',
             -- max pattern length. If the pattern length is equal to this
             -- labels will no longer be skipped. When it exceeds this length
             -- it will either end in a jump or terminate the search
@@ -49,7 +49,7 @@ return {
             -- save location in the jumplist
             jumplist = true,
             -- jump position
-            pos = "start", ---@type "start" | "end" | "range"
+            pos = 'start', ---@type "start" | "end" | "range"
             -- add pattern to search history
             history = false,
             -- add pattern to search register
@@ -71,7 +71,7 @@ return {
             -- allow uppercase labels
             uppercase = true,
             -- add any labels with the correct case here, that you want to exclude
-            exclude = "",
+            exclude = '',
             -- add a label for the first match in the current window.
             -- you can always jump to the first match with `<CR>`
             current = true,
@@ -80,10 +80,10 @@ return {
             -- show the label before the match
             before = false, ---@type boolean|number[]
             -- position of the label extmark
-            style = "overlay", ---@type "eol" | "overlay" | "right_align" | "inline"
+            style = 'overlay', ---@type "eol" | "overlay" | "right_align" | "inline"
             -- flash tries to re-use labels that were already assigned to a position,
             -- when typing more characters. By default only lower-case labels are re-used.
-            reuse = "lowercase", ---@type "lowercase" | "all" | "none"
+            reuse = 'lowercase', ---@type "lowercase" | "all" | "none"
             -- for the current window, label targets closer to the cursor first
             distance = true,
             -- minimum pattern length to show labels
@@ -116,10 +116,10 @@ return {
             -- extmark priority
             priority = 5000,
             groups = {
-                match = "FlashMatch",
-                current = "FlashCurrent",
-                backdrop = "FlashBackdrop",
-                label = "FlashLabel",
+                match = 'FlashMatch',
+                current = 'FlashCurrent',
+                backdrop = 'FlashBackdrop',
+                label = 'FlashLabel',
             },
         },
         -- action to perform when picking a label.
@@ -127,7 +127,7 @@ return {
         ---@type fun(match:Flash.Match, state:Flash.State)|nil
         action = nil,
         -- initial pattern to use when opening flash
-        pattern = "",
+        pattern = '',
         -- When `true`, flash will try to continue the last search
         continue = false,
         -- Set config to a function to dynamically change the config
@@ -157,7 +157,7 @@ return {
                 -- dynamic configuration for ftFT motions
                 config = function(opts)
                     -- autohide flash when in operator-pending mode
-                    opts.autohide = vim.fn.mode(true):find("no") and vim.v.operator == "y"
+                    opts.autohide = vim.fn.mode(true):find('no') and vim.v.operator == 'y'
 
                     -- disable jump labels when enabled and when using a count
                     opts.jump_labels = opts.jump_labels and vim.v.count == 0
@@ -173,22 +173,22 @@ return {
                 multi_line = true,
                 -- When using jump labels, don't use these keys
                 -- This allows using those keys directly after the motion
-                label = { exclude = "hjkliardc" },
+                label = { exclude = 'hjkliardc' },
                 -- by default all keymaps are enabled, but you can disable some of them,
                 -- by removing them from the list.
                 -- If you rather use another key, you can map them
                 -- to something else, e.g., { [";"] = "L", [","] = H }
-                keys = { "f", "F", "t", "T", ";", "," },
+                keys = { 'f', 'F', 't', 'T', ';', ',' },
                 ---@alias Flash.CharActions table<string, "next" | "prev" | "right" | "left">
                 -- The direction for `prev` and `next` is determined by the motion.
                 -- `left` and `right` are always left and right.
                 char_actions = function(motion)
                     return {
-                        [";"] = "next", -- set to `right` to always go right
-                        [","] = "prev", -- set to `left` to always go left
+                        [';'] = 'next', -- set to `right` to always go right
+                        [','] = 'prev', -- set to `left` to always go left
                         -- clever-f style
-                        [motion:lower()] = "next",
-                        [motion:upper()] = "prev",
+                        [motion:lower()] = 'next',
+                        [motion:upper()] = 'prev',
                         -- jump2d style: same case goes next, opposite case goes prev
                         -- [motion] = "next",
                         -- [motion:match("%l") and motion:upper() or motion:lower()] = "prev",
@@ -201,20 +201,20 @@ return {
             -- options used for treesitter selections
             -- `require("flash").treesitter()`
             treesitter = {
-                labels = "abcdefghijklmnopqrstuvwxyz",
-                jump = { pos = "range" },
+                labels = 'abcdefghijklmnopqrstuvwxyz',
+                jump = { pos = 'range' },
                 search = { incremental = false },
-                label = { before = true, after = true, style = "inline" },
+                label = { before = true, after = true, style = 'inline' },
                 highlight = {
                     backdrop = false,
                     matches = false,
                 },
             },
             treesitter_search = {
-                jump = { pos = "range" },
+                jump = { pos = 'range' },
                 search = { multi_window = true, wrap = true, incremental = false },
                 remote_op = { restore = true },
-                label = { before = true, after = true, style = "inline" },
+                label = { before = true, after = true, style = 'inline' },
             },
             -- options used for remote flash
             remote = {
@@ -225,9 +225,9 @@ return {
         -- for regular jumps
         prompt = {
             enabled = true,
-            prefix = { { "⚡", "FlashPromptIcon" } },
+            prefix = { { '⚡', 'FlashPromptIcon' } },
             win_config = {
-                relative = "editor",
+                relative = 'editor',
                 width = 1, -- when <=1 it's a percentage of the editor width
                 height = 1,
                 row = -1, -- when negative it's an offset from the bottom

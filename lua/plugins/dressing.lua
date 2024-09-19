@@ -1,7 +1,7 @@
 return {
-    "stevearc/dressing.nvim",
+    'stevearc/dressing.nvim',
     dependencies = {
-        "nvim-telescope/telescope.nvim",
+        'nvim-telescope/telescope.nvim',
     },
     opts = {
         input = {
@@ -9,10 +9,10 @@ return {
             enabled = true,
 
             -- Default prompt string
-            default_prompt = "Input:",
+            default_prompt = 'Input:',
 
             -- Can be 'left', 'right', or 'center'
-            prompt_align = "left",
+            prompt_align = 'left',
 
             -- When true, <Esc> will close the modal
             insert_only = true,
@@ -21,9 +21,9 @@ return {
             start_in_insert = true,
 
             -- These are passed to nvim_open_win
-            border = "rounded",
+            border = 'rounded',
             -- 'editor' and 'win' will default to being centered
-            relative = "cursor",
+            relative = 'cursor',
 
             -- These can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
             prefer_width = 40,
@@ -41,7 +41,7 @@ return {
                 wrap = false,
                 -- Indicator for when text exceeds window
                 list = true,
-                listchars = "precedes:…,extends:…",
+                listchars = 'precedes:…,extends:…',
                 -- Increase this for more context when text scrolls off the window
                 sidescrolloff = 8,
             },
@@ -49,14 +49,14 @@ return {
             -- Set to `false` to disable
             mappings = {
                 n = {
-                    ["<Esc>"] = "Close",
-                    ["<CR>"] = "Confirm",
+                    ['<Esc>'] = 'Close',
+                    ['<CR>'] = 'Confirm',
                 },
                 i = {
-                    ["<C-c>"] = "Close",
-                    ["<CR>"] = "Confirm",
-                    ["<Up>"] = "HistoryPrev",
-                    ["<Down>"] = "HistoryNext",
+                    ['<C-c>'] = 'Close',
+                    ['<CR>'] = 'Confirm',
+                    ['<Up>'] = 'HistoryPrev',
+                    ['<Down>'] = 'HistoryNext',
                 },
             },
 
@@ -74,7 +74,7 @@ return {
             enabled = true,
 
             -- Priority list of preferred vim.select implementations
-            backend = { "telescope", "fzf_lua", "fzf", "builtin", "nui" },
+            backend = { 'telescope', 'fzf_lua', 'fzf', 'builtin', 'nui' },
 
             -- Trim trailing `:` from prompt
             trim_prompt = true,
@@ -102,15 +102,15 @@ return {
 
             -- Options for nui Menu
             nui = {
-                position = "50%",
+                position = '50%',
                 size = nil,
-                relative = "editor",
+                relative = 'editor',
                 border = {
-                    style = "rounded",
+                    style = 'rounded',
                 },
                 buf_options = {
                     swapfile = false,
-                    filetype = "DressingSelect",
+                    filetype = 'DressingSelect',
                 },
                 win_options = {
                     winblend = 10,
@@ -124,9 +124,9 @@ return {
             -- Options for built-in selector
             builtin = {
                 -- These are passed to nvim_open_win
-                border = "rounded",
+                border = 'rounded',
                 -- 'editor' and 'win' will default to being centered
-                relative = "editor",
+                relative = 'editor',
 
                 buf_options = {},
                 win_options = {
@@ -146,9 +146,9 @@ return {
 
                 -- Set to `false` to disable
                 mappings = {
-                    ["<Esc>"] = "Close",
-                    ["<C-c>"] = "Close",
-                    ["<CR>"] = "Confirm",
+                    ['<Esc>'] = 'Close',
+                    ['<C-c>'] = 'Close',
+                    ['<CR>'] = 'Confirm',
                 },
 
                 override = function(conf)
