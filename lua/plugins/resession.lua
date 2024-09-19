@@ -72,19 +72,5 @@ return {
         vim.keymap.set("n", "<leader>ss", resession.save_tab)
         vim.keymap.set("n", "<leader>sl", resession.load)
         vim.keymap.set("n", "<leader>sd", resession.delete)
-        -- resession.add_hook("post_load", function ()
-        --     local buffers = vim.api.nvim_list_bufs()
-        --
-        --     for _, buf in ipairs(buffers) do
-        --         -- Check if the buffer has a name
-        --         local buf_name = vim.api.nvim_buf_get_name(buf)
-        --         -- If the buffer name is empty, it's a [No Name] buffer
-        --         if buf_name == "" then
-        --             -- Delete the buffer
-        --             vim.api.nvim_buf_delete(buf, { force = true })
-        --         end
-        --     end
-        -- end
-        -- )
     end
 }
