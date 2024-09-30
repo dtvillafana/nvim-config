@@ -35,7 +35,7 @@ return {
             debounce = 200,
             indent = {
                 char = '┊',
-                tab_char = { '', '', '', '', '', '', '', '', '' },
+                tab_char = '┊',
                 smart_indent_cap = true,
                 priority = 1,
                 highlight = highlight,

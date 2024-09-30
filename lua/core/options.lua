@@ -41,6 +41,8 @@ local options = {
     writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
     guifont = 'SauceCodePro Nerd Font Mono' .. ':h11', -- the font used in graphical neovim applications
     maxmempattern = 2000000,
+    list = true,
+    listchars = "tab:>-,space:·",
 }
 
 local neovide_opts = {
