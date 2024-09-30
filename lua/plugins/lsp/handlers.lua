@@ -76,6 +76,9 @@ local function lsp_keymaps(bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ldn', '<cmd>Lspsaga diagnostic_jump_next<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ldN', '<cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
     vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>ldv', '<cmd>Lspsaga show_buf_diagnostics<CR>', opts)
+
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>fs', '<CMD>Telescope lsp_document_symbols<CR>', opts)
+
     vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
 end
 

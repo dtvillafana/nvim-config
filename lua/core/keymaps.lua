@@ -28,9 +28,6 @@ vim.g.maplocalleader = ' '
 --   term_mode = "t",
 --   command_mode = "c",
 
--- Other Keymappings
--- some lsp keymaps can be found in the handlers.lua in the lsp folder
--- $HOME/git-repos/dotfiles/config/nvim/lua/plugins/lsp/handlers.lua
 
 -- Normal Mode --
 -- Better window navigation
@@ -103,7 +100,6 @@ keymap('n', '<leader>fq', '<CMD>Telescope quickfix<CR>', opts)
 keymap('n', '<leader>fn', '<CMD>Telescope notify<CR>', opts)
 keymap('n', '<leader>fm', '<CMD>Telescope toggleterm_manager<CR>', opts)
 keymap('n', '<leader>fk', '<CMD>Telescope keymaps<CR>', opts)
-keymap('n', '<leader>fs', '<CMD>Telescope lsp_document_symbols<CR>', opts)
 keymap('n', '<leader>ft', '<CMD>TodoTelescope<CR>', opts)
 keymap('n', '<leader>e', '<CMD>Oil --float<CR>', opts)
 
