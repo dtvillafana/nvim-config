@@ -39,15 +39,15 @@ return {
         function SET_TERMINAL_KEYMAPS()
             local opts = { noremap = true }
             vim.api.nvim_buf_set_keymap(0, 't', '<leader><esc>', [[<C-\><C-n>]], opts)
-            if READ_SHELL_COMMAND('uname -r'):match('.*WSL2') then
-                vim.api.nvim_buf_set_keymap(0, 't', '<leader><F1>', [[<C-\><C-n>]], opts)
-                vim.api.nvim_buf_set_keymap(0, 't', '<leader><F2>', [[<C-\><C-n>]], opts)
-            end
             vim.api.nvim_buf_set_keymap(0, 't', '<leader>q', [[<C-\><C-n>:q<CR>]], opts)
             vim.api.nvim_buf_set_keymap(0, 't', '<C-h>', [[<C-\><C-n><C-W>h]], opts)
             vim.api.nvim_buf_set_keymap(0, 't', '<C-j>', [[<C-\><C-n><C-W>j]], opts)
             vim.api.nvim_buf_set_keymap(0, 't', '<C-k>', [[<C-\><C-n><C-W>k]], opts)
             vim.api.nvim_buf_set_keymap(0, 't', '<C-l>', [[<C-\><C-n><C-W>l]], opts)
+            if READ_SHELL_COMMAND('uname -r'):match('.*WSL2') then
+                vim.api.nvim_buf_set_keymap(0, 't', '<leader><F1>', [[<C-\><C-n>]], opts)
+                vim.api.nvim_buf_set_keymap(0, 't', '<leader><F2>', [[<C-\><C-n>]], opts)
+            end
         end
 
         vim.cmd('autocmd! TermOpen term://* lua SET_TERMINAL_KEYMAPS()')
@@ -144,7 +144,6 @@ return {
                 hidden = true,
                 direction = 'float',
             })
-
             bpytop:toggle()
         end
 

@@ -20,7 +20,7 @@ return {
         end
 
         require('orgmode').setup({
-            org_agenda_files = { os.getenv('ORG') .. '/*' },
+            org_agenda_files = { os.getenv('ORG') .. '/**/*' },
             org_default_notes_file = os.getenv('ORG') .. '/refile.org',
             org_hide_emphasis_markers = true,
             org_todo_keywords = {

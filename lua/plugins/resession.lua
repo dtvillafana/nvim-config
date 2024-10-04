@@ -44,21 +44,11 @@ return {
                 return true
             end,
             -- override default filter
-            tab_buf_filter = function(tab, bufnr)
-                local bufname = vim.api.nvim_buf_get_name(bufnr)
-                if bufname == '' then
-                    return false
-                end
-                local buftype = vim.bo[bufnr].buftype
-                if buftype == 'help' then
-                    return true
-                end
-                if buftype ~= '' and buftype ~= 'acwrite' then
-                    return false
-                end
-
-                -- this is required, since the default filter skips nobuflisted buffers
-                return true
+            tab_buf_filter = function(tabpage, bufnr)
+                local dir = vim.fn.getcwd(-1, vim.api.nvim_tabpage_get_number(tabpage))
+                -- ensure dir has trailing /
+                dir = dir:sub(-1) ~= "/" and dir .. "/" or dir
+                return vim.startswith(vim.api.nvim_buf_get_name(bufnr), dir)
             end,
             extensions = { scope = {} }, -- add scope.nvim extension
         })
