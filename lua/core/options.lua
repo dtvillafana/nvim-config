@@ -108,7 +108,6 @@ vim.filetype.add({
     },
     pattern = {
         ['.*.%d%d%d'] = 'poweron',
-        ['.*django.*html.*'] = 'jinja',
         ['EAR.*'] = 'poweron',
         ['ear.*'] = 'poweron',
         ['EMA.*'] = 'poweron',
@@ -117,6 +116,7 @@ vim.filetype.add({
         ['ela.*'] = 'poweron',
         ['.*specfiles/*.*'] = 'poweron',
         ['.*poweron/*.*'] = 'poweron',
+        ['.*django.*html.*'] = 'jinja',
         ['.*inventory'] = match_ansible,
         ['.*yml'] = match_ansible,
         ['.*yaml'] = match_ansible,
