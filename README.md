@@ -1,3 +1,5 @@
+# NOTICE
+this has been replaced by [nixvim](https://github.com/dtvillafana/nixvim)
 # How to Setup
 `git clone "https://github.com/dtvillafana/nvim-config" ~/.config/nvim`
 
